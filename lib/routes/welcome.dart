@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:login_routes/routes/login.dart';
-import 'package:login_routes/routes/signup.dart';
+import 'package:login_form/routes/login.dart';
+import 'package:login_form/routes/signup.dart';
+import 'package:login_form/util/colors.dart';
+import 'package:login_form/util/dimensions.dart';
+import 'package:login_form/util/styles.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
