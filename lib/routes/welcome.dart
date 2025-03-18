@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:login_form/routes/login.dart';
-import 'package:login_form/routes/signup.dart';
 import 'package:login_form/util/colors.dart';
 import 'package:login_form/util/dimensions.dart';
 import 'package:login_form/util/styles.dart';
@@ -10,6 +8,7 @@ class Welcome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print ('Welcome page build');
     return Scaffold(
       body: SafeArea(
         maintainBottomViewPadding: false,
@@ -52,7 +51,8 @@ class Welcome extends StatelessWidget {
                     flex: 1,
                     child: OutlinedButton(
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
+                        //Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
+                      Navigator.pushNamed(context, '/signup');
                       },
                       style: OutlinedButton.styleFrom(
                         backgroundColor: AppColors.secondary,
@@ -73,7 +73,8 @@ class Welcome extends StatelessWidget {
                     flex: 1,
                     child: OutlinedButton(
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+                        //Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+                      Navigator.pushNamed(context, '/login');
                       },
                       style: OutlinedButton.styleFrom(
                         backgroundColor: AppColors.primary,

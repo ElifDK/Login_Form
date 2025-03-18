@@ -8,7 +8,7 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("build");
+    print ('SignUp page build');
     return Scaffold(
       appBar: AppBar(
         title: Text(
