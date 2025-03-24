@@ -1,4 +1,5 @@
 import 'dart:io' show Platform;
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:login_form/util/colors.dart';
@@ -95,7 +96,11 @@ class _LoginState extends State<Login> {
                           if (value.isEmpty) {
                             return 'Cannot leave e-mail empty';
                           }
+                          if (!EmailValidator.validate(value)) {
+                            return 'Not a valid email';
+                          }
                         }
+
                       },
                       onSaved: (value) {
                         email = value ?? '';
