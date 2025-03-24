@@ -1,3 +1,5 @@
+import 'dart:io' show Platform;
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:login_form/util/colors.dart';
 import 'package:login_form/util/dimensions.dart';
@@ -15,6 +17,37 @@ class _LoginState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
   String email = '';
   String pass = '';
+
+  Future<void> _showDialog(String title, String message) async{
+    bool isAndroid = Platform.isAndroid;
+    return showDialog(context: context,
+        builder: (BuildContext context) {
+          if (isAndroid) {
+            return AlertDialog(
+              title: Text(title),
+              content: Text(message),
+              actions: [
+                TextButton(onPressed: () {
+                  Navigator.pop(context);
+                },
+                    child: Text('OK'))
+              ],
+            );
+          }
+          else {
+            return CupertinoAlertDialog(
+              title: Text(title),
+              content: Text(message),
+              actions: [
+                TextButton(onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                    child: Text('OK'))
+              ],
+            );
+          }
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -125,6 +158,9 @@ class _LoginState extends State<Login> {
                         setState(() {
                           counter++;
                         });
+                      }
+                      else {
+                        _showDialog('Form Error', 'Your form is invalid');
                       }
                     },
                     style: OutlinedButton.styleFrom(
