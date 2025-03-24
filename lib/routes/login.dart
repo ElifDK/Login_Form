@@ -58,9 +58,6 @@ class _LoginState extends State<Login> {
           'LOGIN',
           style: kAppBarTitleTextStyle,
         ),
-        backgroundColor: AppColors.primary,
-        centerTitle: true,
-        elevation: 0.0,
       ),
       body: Padding(
         padding: Dimen.regularPadding,

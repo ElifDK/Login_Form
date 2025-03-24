@@ -8,7 +8,6 @@ class Welcome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print ('Welcome page build');
     return Scaffold(
       body: SafeArea(
         maintainBottomViewPadding: false,
