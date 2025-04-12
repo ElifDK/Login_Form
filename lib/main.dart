@@ -6,7 +6,7 @@ import 'package:login_form/util/colors.dart';
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: '/login',
+    initialRoute: '/signup',
     routes: {
       '/': (context) => Welcome(),
       '/signup' : (context) => SignUp(),

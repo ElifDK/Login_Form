@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_form/util/styles.dart';
-
+import 'package:http/http.dart' as http;
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -9,40 +9,40 @@ class SignUp extends StatefulWidget {
   State<SignUp> createState() => _SignUpState();
 }
 
+
 class _SignUpState extends State<SignUp> {
-  int _counter = 0;
 
-  // simulate a network requests with delays
-  void getData () async{
-     String name = await Future.delayed(Duration(seconds: 3), () {
-      return ('this name');
+  Future<void> getData () async {
+    await Future.delayed(Duration(seconds: 7), () {
+      print ('response');
     });
+    print ('do something with this response');
+  }
 
-    print ('do something with the $name');
-}
-@override
-  void initState() {
-    super.initState();
-    getData();
-    print ('initState function');
-}
+
 
   @override
+  void initState() {
+    super.initState();
+    print ('Initstate function');
+    getData();
+  }
+
+  int _counter = 0;
+   @override
   Widget build(BuildContext context) {
-    print ('Build Function');
+     print('Build function');
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'SIGNUP',
-          style: kAppBarTitleTextStyle,
-        ),
+        title: Text('Sign Up', style: kAppBarTitleTextStyle,),
       ),
-      body: ElevatedButton(onPressed: (){
+      body: ElevatedButton(onPressed: () {
         setState(() {
           _counter++;
         });
       },
-          child: Text('Counter $_counter'))
-    );
+          child: Text('Example $_counter'))
+      ,
+   );
   }
 }
